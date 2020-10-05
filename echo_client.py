@@ -43,7 +43,7 @@ def client(msg, log_buffer=sys.stderr):
         sock.close()
         # Done: when all is said and done, you should return the entire reply
         # you received from the server as the return value of this function.
-    return print(received_message)
+    return received_message
 
 
 if __name__ == '__main__':
