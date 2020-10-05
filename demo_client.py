@@ -10,3 +10,7 @@ received_message = client_socket.recv(4096)
 print("Server says: {}".format(received_message.decode()))
 
 client_socket.close()
+
+
+
+file=log_buffer
