@@ -8,7 +8,7 @@ def server(log_buffer=sys.stderr):
     address = ('127.0.0.1', 10000)
     # DONE: instantiate a TCP socket with IPv4 Addressing, called 'sock'
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
-    # TODO: You may find that if you repeatedly run the server script it fails,
+    # commentedout: You may find that if you repeatedly run the server script it fails,
     #       claiming that the port is already used.  You can set an option on
     #       your socket that will fix this problem. We DID NOT talk about this
     #       in class. Find the correct option by reading the very end of the
@@ -29,7 +29,7 @@ def server(log_buffer=sys.stderr):
         while True:
             print('waiting for a connection', file=log_buffer)
 
-            # DONE(??): make a new socket when a client connects, call it 'conn',
+            # DONE: make a new socket when a client connects, call it 'conn',
             #       at the same time you should be able to get the address of
             #       the client so we can report it below.  Replace the
             #       following line with your code. It is only here to prevent
@@ -42,7 +42,7 @@ def server(log_buffer=sys.stderr):
                 # buffers.  When a complete message has been received, the
                 # loop will exit
                 while True:
-                    # DONE(?): receive 16 bytes of data from the client. Store
+                    # DONE: receive 16 bytes of data from the client. Store
                     #       the data you receive as 'data'.  Replace the
                     #       following line with your code.  It's only here as
                     #       a placeholder to prevent an error in string
@@ -50,14 +50,14 @@ def server(log_buffer=sys.stderr):
                     data = conn.recv(16)
                     print('received "{0}"'.format(data.decode('utf8')))
 
-                    # DONE(?): Send the data you received back to the client, log
+                    # DONE: Send the data you received back to the client, log
                     # the fact using the print statement here.  It will help in
                     # debugging problems.
                     conn.sendall(data)
 
                     print('sent "{0}"'.format(data.decode('utf8')))
 
-                    # DONE?: Check here to see whether you have received the end
+                    # DONE: Check here to see whether you have received the end
                     # of the message. If you have, then break from the `while True`
                     # loop.
                     # if not data:
@@ -72,7 +72,7 @@ def server(log_buffer=sys.stderr):
                 traceback.print_exc()
                 sys.exit(1)
             finally:
-                # DONE(?): When the inner loop exits, this 'finally' clause will
+                # DONE: When the inner loop exits, this 'finally' clause will
                 #       be hit. Use that opportunity to close the socket you
                 #       created above when a client connected.
                 conn.close()
@@ -81,7 +81,7 @@ def server(log_buffer=sys.stderr):
                 )
 
     except KeyboardInterrupt:
-        # DONE? : Use the python KeyboardInterrupt exception as a signal to
+        # DONE: Use the python KeyboardInterrupt exception as a signal to
         #       close the server socket and exit from the server function.
         #       Replace the call to `pass` below, which is only there to
         #       prevent syntax problems
